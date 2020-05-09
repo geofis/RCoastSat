@@ -84,6 +84,8 @@ distl <- pointdist(sh = shl, re = refl, tr = trans, rtr = rawtrans)
 Time-series of shoreline change for each transect
 -------------------------------------------------
 
+> Increase the `fig.height` parameter in the chunk header to make room for facets with more than 5 shoreline change transects. For example, use `fig.height=20` when plotting 10 shoreline change transects.
+
 ``` r
 interdist <- map(distl, interpolate) %>% plyr::ldply()
 distances <- plyr::ldply(distl)
@@ -94,7 +96,7 @@ distances %>%
   geom_hline(yintercept = 0, color = 'grey') +
   geom_line(colour='black', lwd = 0.5) +
   scale_x_date(labels = scales::date_format("%Y-%m"), date_breaks = '3 months') +
-  scale_y_continuous(limits = c(-40, 40)) +
+  scale_y_continuous(limits = c(-30, 30)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5), text = element_text(size = 14)) +
   facet_wrap(~transect, ncol = 1)
 ```
