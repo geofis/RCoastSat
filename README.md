@@ -10,7 +10,6 @@ library(tidyverse)
 library(purrr)
 library(sf)
 library(RColorBrewer)
-library(heatwaveR)
 ```
 
 Read the functions
